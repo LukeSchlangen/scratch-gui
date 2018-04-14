@@ -5,7 +5,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/LLK/scratch-gui.svg)](https://greenkeeper.io/)
 
 ## Installation
-This requires you to have Git and Node.js installed on your computer.
+This requires you to have Git and Node.js installed.
 
 In your own node environment/application:
 ```bash
