@@ -6,6 +6,22 @@
     <link rel="shortcut icon" href="static/favicon.ico">
     <title>Scratch 3.0 GUI: Compatibility Testing</title>
 
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAvYthWKWJuHh4XoJooHGvJ_EKl5YBgtzU",
+        authDomain: "scratch-gui.firebaseapp.com",
+        databaseURL: "https://scratch-gui.firebaseio.com",
+        projectId: "scratch-gui",
+        storageBucket: "",
+        messagingSenderId: "371409403198"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!-- /Firbase -->
+
     <!-- Sentry error logging to help with finding bugs -->
     <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js" crossorigin="anonymous"></script>
     <script>
