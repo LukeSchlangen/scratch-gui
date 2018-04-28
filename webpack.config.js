@@ -18,11 +18,11 @@ module.exports = {
     },
     devtool: 'cheap-module-source-map',
     entry: {
-        lib: ['react', 'react-dom'],
-        gui: './src/index.jsx',
-        blocksonly: './src/examples/blocks-only.jsx',
-        compatibilitytesting: './src/examples/compatibility-testing.jsx',
-        player: './src/examples/player.jsx'
+        // lib: ['react', 'react-dom'],
+        gui: './src/index.jsx'
+        // blocksonly: './src/examples/blocks-only.jsx',
+        // compatibilitytesting: './src/examples/compatibility-testing.jsx',
+        // player: './src/examples/player.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
