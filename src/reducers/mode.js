@@ -2,6 +2,7 @@ const SET_FULL_SCREEN = 'scratch-gui/mode/SET_FULL_SCREEN';
 const SET_PLAYER = 'scratch-gui/mode/SET_PLAYER';
 
 const initialState = {
+    isAdmin: false,
     isFullScreen: false,
     isPlayerOnly: false
 };
@@ -11,11 +12,13 @@ const reducer = function (state, action) {
     switch (action.type) {
     case SET_FULL_SCREEN:
         return {
+            isAdmin: state.isAdmin,
             isFullScreen: action.isFullScreen,
             isPlayerOnly: state.isPlayerOnly
         };
     case SET_PLAYER:
         return {
+            isAdmin: state.isAdmin,
             isFullScreen: state.isFullScreen,
             isPlayerOnly: action.isPlayerOnly
         };

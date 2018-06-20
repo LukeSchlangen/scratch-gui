@@ -64,6 +64,7 @@ const GUIComponent = props => {
         enableCommunity,
         importInfoVisible,
         intl,
+        isAdmin,
         isPlayerOnly,
         loading,
         onExtensionButtonClick,
@@ -165,42 +166,46 @@ const GUIComponent = props => {
                                             id="gui.gui.codeTab"
                                         />
                                     </Tab>
-                                    <Tab
-                                        className={tabClassNames.tab}
-                                        onClick={onActivateCostumesTab}
-                                    >
-                                        <img
-                                            draggable={false}
-                                            src={costumesIcon}
-                                        />
-                                        {targetIsStage ? (
-                                            <FormattedMessage
-                                                defaultMessage="Backdrops"
-                                                description="Button to get to the backdrops panel"
-                                                id="gui.gui.backdropsTab"
+                                    {isAdmin ? (
+                                        <Tab
+                                            className={tabClassNames.tab}
+                                            onClick={onActivateCostumesTab}
+                                        >
+                                            <img
+                                                draggable={false}
+                                                src={costumesIcon}
                                             />
-                                        ) : (
-                                            <FormattedMessage
-                                                defaultMessage="Costumes"
-                                                description="Button to get to the costumes panel"
-                                                id="gui.gui.costumesTab"
+                                            {targetIsStage ? (
+                                                <FormattedMessage
+                                                    defaultMessage="Backdrops"
+                                                    description="Button to get to the backdrops panel"
+                                                    id="gui.gui.backdropsTab"
+                                                />
+                                            ) : (
+                                                <FormattedMessage
+                                                    defaultMessage="Costumes"
+                                                    description="Button to get to the costumes panel"
+                                                    id="gui.gui.costumesTab"
+                                                />
+                                            )}
+                                        </Tab>
+                                    ) : ''}
+                                    {isAdmin ? (
+                                        <Tab
+                                            className={tabClassNames.tab}
+                                            onClick={onActivateSoundsTab}
+                                        >
+                                            <img
+                                                draggable={false}
+                                                src={soundsIcon}
                                             />
-                                        )}
-                                    </Tab>
-                                    <Tab
-                                        className={tabClassNames.tab}
-                                        onClick={onActivateSoundsTab}
-                                    >
-                                        <img
-                                            draggable={false}
-                                            src={soundsIcon}
-                                        />
-                                        <FormattedMessage
-                                            defaultMessage="Sounds"
-                                            description="Button to get to the sounds panel"
-                                            id="gui.gui.soundsTab"
-                                        />
-                                    </Tab>
+                                            <FormattedMessage
+                                                defaultMessage="Sounds"
+                                                description="Button to get to the sounds panel"
+                                                id="gui.gui.soundsTab"
+                                            />
+                                        </Tab>
+                                    ) : ''}
                                 </TabList>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     <Box className={styles.blocksWrapper}>
@@ -228,12 +233,16 @@ const GUIComponent = props => {
                                         </button>
                                     </Box>
                                 </TabPanel>
-                                <TabPanel className={tabClassNames.tabPanel}>
-                                    {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
-                                </TabPanel>
-                                <TabPanel className={tabClassNames.tabPanel}>
-                                    {soundsTabVisible ? <SoundTab vm={vm} /> : null}
-                                </TabPanel>
+                                {isAdmin ? (
+                                    <TabPanel className={tabClassNames.tabPanel}>
+                                        {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
+                                    </TabPanel>
+                                ) : ''}
+                                {isAdmin ? (
+                                    <TabPanel className={tabClassNames.tabPanel}>
+                                        {soundsTabVisible ? <SoundTab vm={vm} /> : null}
+                                    </TabPanel>
+                                ) : ''}
                             </Tabs>
                             {backpackOptions.visible ? (
                                 <Backpack host={backpackOptions.host} />
