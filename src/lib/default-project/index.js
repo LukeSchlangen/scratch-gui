@@ -1,5 +1,5 @@
 import {TextEncoder} from 'text-encoding';
-import projectJson from './project.json';
+import combinedProject from './project-combiner';
 
 /* eslint-disable import/no-unresolved */
 import popWav from '!arraybuffer-loader!./83a9787d4cb6f3b7632b4ddfebf74367.wav';
@@ -14,7 +14,7 @@ export default [{
     id: 0,
     assetType: 'Project',
     dataFormat: 'JSON',
-    data: JSON.stringify(projectJson)
+    data: JSON.stringify(combinedProject)
 }, {
     id: '83a9787d4cb6f3b7632b4ddfebf74367',
     assetType: 'Sound',
